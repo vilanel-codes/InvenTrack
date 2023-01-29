@@ -1,0 +1,321 @@
+<!-- Coding by CodingLab | www.codinglabweb.com -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="css/canvas_style.css">
+    <link rel="stylesheet" href="css/search_form_style.css">
+    <!-- <link rel="stylesheet" href="css/style0.css"> -->
+
+    <!----===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.2/mqttws31.min.js"
+        type="text/javascript"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-firestore.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel = "stylesheet" 
+         href = "https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+      
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+    <title>Shade-Home</title>
+</head>
+
+<body style="margin: 25px; margin-left: 100px;">
+    <!-- <style>
+    body {
+        background-image: url('logo.png');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: original;
+      }
+      </style> -->
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+
+
+                </span>
+
+                <div class="text logo-text">
+                    <span class="name">shade</span>
+                    <!-- <span class="profession">Web developer</span> -->
+                </div>
+            </div>
+
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+
+                <!-- <li class="search-box">
+                    <i class='bx bx-search icon'></i>
+                    <input type="text" placeholder="Search...">
+                </li> -->
+
+                <ul class="menu-links">
+
+
+                    <!-- <li class="nav-link" title="Show Stations">
+                        <a href="#" onclick="showStation()">
+                            <i class='bx bx-bell icon'></i>
+                            <i class='bx bxs-map icon' id="showStation"></i>
+                            <span class="text nav-text">Show Stations</span>
+                        </a>
+                    </li> -->
+
+                    <li class="nav-link" title="Record Station (draw)">
+                        <a href="#" onclick="recordStation()">
+                            <!-- <i class='bx bx-bell icon'></i> -->
+                            <!-- <i class='bx bxs-map icon' ></i> -->
+                            <i class='bx bx-location-plus icon' id="recordStation"></i>
+                            <span class="text nav-text">Create Asset</span>
+                        </a>
+                    </li>
+
+
+
+
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+
+
+                <li class="" title="Logout">
+                    <!-- <button onclick="logout()" style="background-color: transparent;border-color: transparent;"> -->
+                    <a href="/" onclick="logout()">
+
+                        <i class='bx bx-log-out icon'></i>
+
+                        <span class="text nav-text">Logout</span>
+
+                    </a>
+                    <!-- </button> -->
+                </li>
+
+                <!-- <li class="mode">
+                    <div class="sun-moon">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Dark mode</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li> -->
+
+
+
+
+            </div>
+        </div>
+
+    </nav>
+
+
+
+
+    <!-- <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.."> -->
+
+
+
+
+
+    <div class="search" style="overflow:auto; height:inherit;">
+        <!-- <form autocomplete="off" >
+            <div class="autocomplete">
+                <input id="myInput" type="text" name="myAssets" placeholder="Search Assets..." style="width: 100%; ">
+    
+            </div>
+            <button id="search-button" type="button" class="btn btn-primary">
+                <i class="fas fa-search"></i>
+              </button>
+    
+            
+    
+    
+        </form> -->
+
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for assets" title="Type in a asset">
+
+
+
+        <div class="overlay" id="overlayAdd">
+
+
+            <div class=" container  ">
+                <form id="newDoc">
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Asset-id:</label>
+                        </div>
+                        <div class="col-75"style="padding: 5px;" >
+                            <input style="border:1px solid rgba(79, 78, 78, 0.372); " type="text" name="asset_id" placeholder="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Asset information:</label>
+                        </div>
+                        <div class="col-75" style="padding: 5px;">
+                            <input style="border:1px solid rgba(79, 78, 78, 0.372); " type="text" name="recurring_date" placeholder="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for>Name:</label>
+                        </div>
+                        <div class="col-75" style="padding: 5px;">
+                            <input style="border:1px solid rgba(79, 78, 78, 0.372); " type="text" name="name" placeholder="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for>Date of Installation:</label>
+                        </div>
+                        <div class="col-75" style="padding: 5px;">
+                            <input style="border:1px solid rgba(79, 78, 78, 0.372); " type="datetime-local" name="date" placeholder="">
+                        </div>
+                    </div>
+
+                    
+                    
+                    <br>
+                    <div class="row">
+                        <button type="button" class="btn butto btn-default"  onclick="CancelTag()" id="cancel"
+                            name="button">CANCEL</button>
+                        <button type="button" class="btn button btn-default" onclick="addNewTag()" id="save"
+                            name="button">Click on canvas to select the location</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br>
+        <!-- Table with panel -->
+        <div class="px-4">
+
+            <div class="table-wrapper">
+                <!--Table-->
+                <table class="table table-hover mb-0" id="myTable">
+
+                    <!--Table head-->
+                    <thead>
+                        <tr>
+
+                            
+                            <th>
+                                <!-- <input class="form-check-input" type="checkbox" id="checkbox"> -->
+                                <label class="form-check-label"  class="mr-2 label-table">Name</label>
+                                <!-- <i class="fas fa-sort ml-1"></i> -->
+                            </th>
+
+                            
+                            <th>
+                                <!-- <input class="form-check-input" type="checkbox" id="checkbox"> -->
+                                <label class="form-check-label"  class="mr-2 label-table">Recurring period</label>
+                                <!-- <i class="fas fa-sort ml-1"></i> -->
+                            </th>
+
+                            <th class="th-lg">
+                                <label class="form-check-label" class="mr-2 label-table">Date of Installation</label>
+                                <!-- <i class="fas fa-sort ml-1"></i> -->
+                            </th>
+
+                            <th class="th-lg">
+
+                            </th>
+
+                        </tr>
+                    </thead>
+                    <!--Table head-->
+
+                    <!--Table body-->
+                    <tbody style="color: #696D6D" id="tag-data">
+                    </tbody>
+                    <!--Table body-->
+                </table>
+
+                <!--Table-->
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="canvas_div" class=" box-shadow-hover pointer svg-shadow shadow-info shadow-intensity-lg" style="position:absolute;  left: 50%; ">
+        <canvas id="canvas" style="position:relative;  "></canvas>
+    </div>
+
+    <button onclick="increase_opacity()" class="control_button" title="Increase Opacity"><i
+            class='bx bx-plus icon'></i></button>
+    <button onclick="decrease_opacity()" class="control_button1" title="Decrease Opacity"><i
+            class='bx bx-minus icon'></i></button>
+
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+    <script>
+
+        var config = {
+            // apiKey: "AIzaSyBQjkg6efiPasBWGfZEE6sJRJEuul9eImA",
+            // authDomain: "shade-8255e.firebaseapp.com",
+            // projectId: "shade-8255e",
+            // storageBucket: "shade-8255e.appspot.com",
+            // messagingSenderId: "495496988767",
+            // appId: "1:495496988767:web:c930f5f66eab6af3a233ea",
+            // measurementId: "G-Y1725G6YF3"
+            apiKey: "AIzaSyBDPEjC6AA3b_ujKAP2-O4818iJyu4LU0U",
+    authDomain: "shade-23ef2.firebaseapp.com",
+    projectId: "shade-23ef2",
+    storageBucket: "shade-23ef2.appspot.com",
+    messagingSenderId: "709602941599",
+    appId: "1:709602941599:web:21b1dddbc5700cf23060aa",
+    measurementId: "G-0KNE9NK60R"
+        };
+
+        firebase.initializeApp(config)
+        var db = firebase.firestore();
+    </script>
+    <!-- <script src="javascript_frontend/assets_form.js"></script> -->
+    <script src="javascript_frontend/canvas_image_script.js"></script>
+    <script src="javascript_frontend/firestore_script.js"></script>
+    <script src="javascript_frontend/canvas_script.js"></script>
+    <script src="javascript_frontend/canvas_tooglebuttons.js"></script>
+
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/canvas-home.css">
+    <!-- <link rel="stylesheet" href="css/search_form_style.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.20.2/dist/bootstrap-table.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+    <!-- FONT LINK -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@300&family=Baloo+2:wght@400;500&family=Baloo+Tammudu+2&family=Montserrat:wght@100;400&family=Raleway:wght@200&family=Source+Code+Pro:wght@200;600&family=Ubuntu+Condensed&display=swap"
+        rel="stylesheet">
+
+
+    <title>Shade</title>
+</head>
+
+<body>
+    <div id="overlay_loader">
+        <div id="loader" class="center"></div>
+    </div>
+    
+    <!-- OVERLAY START -->
+    <div class="overlay" id="overlayAdd">
+        <button onclick="CancelTag()" class="btn-close assetAdd" aria-label="Close"></button>
+        <h1>Enter Asset Details</h1>
+        <form action="" id="newDoc">
+            <label>Asset ID</label>
+            <input type="text" id="username" name="asset_id" autocomplete="off" required />
+            <label>Information</label>
+            <input type="text" id="information" name="asset_info" />
+            <label>Name</label>
+            <input type="text" id="name" name="asset_name" />
+            <label>Recursing Period</label>
+            <input type="text" name="recurring_date" />
+            <label>Installation Date</label>
+            <input type="datetime-local" id="date_time" name="date" />
+            <label>Height</label>
+            <input type="number" id="height" name="height" />
+           
+            <!-- <label>Image Name</label>
+            <input type="text" name="" id="namebox">
+            <label id="progress"></label> -->
+
+            <!-- <button id="select">Select Image</button> -->
+            
+            <!-- <button id="retrieve">Retrieve Image</button> -->
+                
+
+            <button type="button" id="submit" onclick="addNewTag()" value="Add">Add</button>
+
+            <label style="margin-top: 1rem;">After adding the asset details, click on the canvas to locate the
+                asset</label>
+
+        </form>
+
+    </div>
+
+    <!-- OVERLAY END -->
+    <header>
+        <nav class="navbar" style="position: absolute;">
+            <div class="navbar-container container-nav">
+                <input type="checkbox" name="" id="">
+                <div class="hamburger-lines">
+                    <span class="line line1"></span>
+                    <span class="line line2"></span>
+                    <span class="line line3"></span>
+                </div>
+                <ul class="menu-items">
+                    <li><a href="/home">Buildings</a></li>
+                    <!-- <li><a href="/assets">Assets</a></li> -->
+                    <!-- <li><a href="#" onclick="recordStation()">Create Asset</a></li> -->
+                    <li><a href="/" onclick="logout()">Logout</a></li>
+
+                </ul>
+                <h1 class="logo">SHADE</h1>
+            </div>
+        </nav>
+    </header>
+    <main>
+        
+        <input type="text" id="myInput" onkeyup="myFunction()" onclick= "showSearchTable()" placeholder="Search for assets" title="Type in a asset">
+        <div id="search_table">
+            <button onclick="closeSearchTable()" class="btn-close closeSearchTable" aria-label="Close"></button>
+            <table  id="myTable">
+                <tbody style="color: #696D6D" id="assetName">
+                </tbody>
+            </table>
+
+        </div>
+        <section id="assetsOn" class="side-table">
+
+
+            <!-- <a class="assetsOff" onclick="assetsOff()"><i class="fa-thin fa-xmark"></i></a> -->
+            <button onclick="assetsOff()" class="btn-close assetClose" aria-label="Close"></button>
+
+
+
+            <div id="asset_info" class="container" style="width:100%;">
+
+                <h2 id="asset_name"></h2>
+                <!-- <p id="company_name"></p> -->
+                <hr>
+                <h4 id="h4">Quick facts</h4>
+                <p id="info"></p>
+                <p id="installation_date"></p>
+                <p id="recurring_date"></p>
+                
+
+
+
+                <hr>
+                <h4 id="h4">Images</h4>
+                <div id="image_links">
+
+                    <div id="img"></div>
+                </div>
+                <hr>
+                <h4 id="h4">Asset Documents</h4>
+                <div id="file_links">
+
+                    <div id="file"></div>
+                </div>
+
+            </div>
+
+
+        </section>
+
+        <section class="main-canvas">
+            <div id="canvas_div" class=" box-shadow-hover pointer svg-shadow shadow-info shadow-intensity-lg">
+                <canvas id="canvas" style="position:relative;  "></canvas>
+            </div>
+            <button onclick="increase_opacity()" class="control_button" title="Increase Opacity">+</button>
+            <button onclick="decrease_opacity()" class="control_button1" title="Decrease Opacity">-</button>
+
+        </section>
+
+    </main>
+
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    
+    <script>
+
+        var config = {
+            // apiKey: "AIzaSyBQjkg6efiPasBWGfZEE6sJRJEuul9eImA",
+            // authDomain: "shade-8255e.firebaseapp.com",
+            // projectId: "shade-8255e",
+            // storageBucket: "shade-8255e.appspot.com",
+            // messagingSenderId: "495496988767",
+            // appId: "1:495496988767:web:c930f5f66eab6af3a233ea",
+            // measurementId: "G-Y1725G6YF3"
+            apiKey: "AIzaSyBDPEjC6AA3b_ujKAP2-O4818iJyu4LU0U",
+            authDomain: "shade-23ef2.firebaseapp.com",
+            projectId: "shade-23ef2",
+            storageBucket: "shade-23ef2.appspot.com",
+            messagingSenderId: "709602941599",
+            appId: "1:709602941599:web:21b1dddbc5700cf23060aa",
+            measurementId: "G-0KNE9NK60R"
+        };
+
+        firebase.initializeApp(config)
+        var db = firebase.firestore();
+    </script>
+
+<script src="javascript_frontend/canvas-home.js"></script>
+    <!-- <script src="javascript_frontend/assets_form.js"></script> -->
+    
+    
+    
+    
+    <script src="javascript_frontend/firestore_script.js"></script>
+    <script src="javascript_frontend/asset_info.js"></script>
+    <script src="javascript_frontend/assets_form.js"></script>
+
+    
+
+    <!-- <script src="javascript_frontend/canvas_script.js"></script> -->
+    <script src="javascript_frontend/canvas_tooglebuttons.js"></script>
+
+
+
+
+</body>
+
+</html>
+
+</html>

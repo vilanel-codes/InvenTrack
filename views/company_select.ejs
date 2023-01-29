@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Shade</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
+  <!-- <link rel="stylesheet" href="css/login_style.css"> -->
+  <link rel="stylesheet" href="css/company_list.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- <script>
+    if(sessionStorage.getItem("user")=="undefined")
+    {
+      // 
+    }
+    </script> -->
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+</head>
+
+<body>
+  <div id="svg_wrap" style="margin: 7%;"></div>
+
+  <h1>Buildings</h1>
+  <section id="to_add">
+    <!-- <p>Pozyx information</p>
+   <input id="pozyx_username" type="text" name="host" placeholder="Pozyx Username" />
+   <input id="pozyx_password" type="text" name="host" placeholder="Pozyx Password" />
+   <input id="company_name" type="text" name="host" placeholder="Pozyx Setup Name" /> -->
+    <!-- <input type="text" placeholder="Insurance number" />
+   <input type="text" placeholder="Family status" /> -->
+  </section>
+
+  <a href="/" class="btn btn-info btn-lg" onclick="logout()"><span class="glyphicon glyphicon-log-out"></span> Log
+    out</a>
+
+
+
+
+  <!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+  <script src="./script.js"></script>
+  <!-- <section class="container phone-container"> -->
+  <!-- <div class="container" id="container" style="width: 403px;">
+  <div class="form-container sign-in-container" style="width: 100%;">
+    
+    <br>
+     <div class="form scroll">
+        <div><h2>Registered Companies</h2><br></div> -->
+  <!-- <div style="height: -webkit-fill-available; width: -webkit-fill-available; margin-top: 20%;margin-bottom: 35%;background-color: whitesmoke;" class="scroll",> -->
+  <!-- <div style="background-color: azure;border:1%;border-radius: 20%;"></div> -->
+  <!-- <button class="company_button">Gembot systems</button> -->
+  <!-- <button class="company_button">Gembot systems</button>
+        <button class="company_button">Gembot systems</button>
+        <button class="company_button">Gembot systems</button>
+        <button class="company_button">Gembot systems</button>
+        <button class="company_button">Gembot systems</button>
+        <button class="company_button">Gembot systems</button>
+        <button class="company_button">Gembot systems</button> -->
+
+  <!-- </div> -->
+  <!-- <div class="button" id="next" onclick="add_company_redirect()">Add company</div> -->
+
+  <!-- </section></div>
+</div> -->
+
+
+
+
+
+
+  <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+
+  <script>
+
+    var config = {
+      // apiKey: "AIzaSyBQjkg6efiPasBWGfZEE6sJRJEuul9eImA",
+      // authDomain: "shade-8255e.firebaseapp.com",
+      // projectId: "shade-8255e",
+      // storageBucket: "shade-8255e.appspot.com",
+      // messagingSenderId: "495496988767",
+      // appId: "1:495496988767:web:c930f5f66eab6af3a233ea",
+      // measurementId: "G-Y1725G6YF3"
+
+      apiKey: "AIzaSyBDPEjC6AA3b_ujKAP2-O4818iJyu4LU0U",
+      authDomain: "shade-23ef2.firebaseapp.com",
+      projectId: "shade-23ef2",
+      storageBucket: "shade-23ef2.appspot.com",
+      messagingSenderId: "709602941599",
+      appId: "1:709602941599:web:21b1dddbc5700cf23060aa",
+      measurementId: "G-0KNE9NK60R"
+    };
+
+    firebase.initializeApp(config)
+    var db = firebase.firestore();
+  </script>
+
+  <script src="javascript_frontend/Company_list.js"></script>
+
+
+
+
+
+
+</body>
